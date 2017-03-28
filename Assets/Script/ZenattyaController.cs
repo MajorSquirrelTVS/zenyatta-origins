@@ -5,6 +5,8 @@ using UnityEngine;
 public class ZenattyaController : MonoBehaviour {
 
     public float MaxSpeed = 10.0f;
+    bool facingRight = true;
+    bool grounded = true;
 	// Use this for initialization
 	void Start () {
 
@@ -15,7 +17,20 @@ public class ZenattyaController : MonoBehaviour {
         float move = Input.GetAxis("Horizontal");
 
         Rigidbody2D rigidbody= GetComponent<Rigidbody2D>();
-        rigidbody.velocity = new Vector2(move * MaxSpeed * Time.deltaTime, transform.position.y);
+        rigidbody.velocity = new Vector2(move * MaxSpeed, rigidbody.velocity.y);
 
+        if (move > 0 && !facingRight)
+            Flip();
+        else if (move < 0 && facingRight)
+            Flip();
 	}
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
 }
