@@ -6,7 +6,7 @@ public class ZenattyaController : MonoBehaviour {
 
     public float maxSpeed = 10.0f;
     bool facingRight = true;
-    bool grounded = true;
+    bool grounded = false;
     public Transform groundCheck;
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;
@@ -21,11 +21,11 @@ public class ZenattyaController : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-        /** JUMP **/
+        /** JUMP state **/
 
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
-        /** JUMP **/
+        /** JUMP state **/
 
 
         /** MOVEMENT **/
@@ -44,10 +44,14 @@ public class ZenattyaController : MonoBehaviour {
 
     void Update()
     {
+        /** JUMPING **/
+
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
             rigidbody.AddForce(new Vector2(0, jumpForce));
         }
+
+        /** JUMPING **/
     }
 
     void Flip()
