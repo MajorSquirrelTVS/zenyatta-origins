@@ -4,18 +4,62 @@ using UnityEngine;
 
 public class ZenattyaController : MonoBehaviour {
 
-    public float MaxSpeed = 10.0f;
-	// Use this for initialization
-	void Start () {
+    public float maxSpeed = 10.0f;
+    bool facingRight = true;
+    bool grounded = false;
+    public Transform groundCheck;
+    float groundRadius = 0.2f;
+    public LayerMask whatIsGround;
+    public float jumpForce = 700.0f;
+    Rigidbody2D rigidbody;
 
-	}
+    // Use this for initialization
+    void Start () {
+        rigidbody = GetComponent<Rigidbody2D>();
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+        /** JUMP state **/
+
+        grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+
+        /** JUMP state **/
+
+
+        /** MOVEMENT **/
+
         float move = Input.GetAxis("Horizontal");
 
-        Rigidbody2D rigidbody= GetComponent<Rigidbody2D>();
-        rigidbody.velocity = new Vector2(move * MaxSpeed * Time.deltaTime, transform.position.y);
+        rigidbody.velocity = new Vector2(move * maxSpeed, rigidbody.velocity.y);
 
+        if (move > 0 && !facingRight)
+            Flip();
+        else if (move < 0 && facingRight)
+            Flip();
+
+        /** MOVEMENT **/
 	}
+
+    void Update()
+    {
+        /** JUMPING **/
+
+        if (grounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            rigidbody.AddForce(new Vector2(0, jumpForce));
+        }
+
+        /** JUMPING **/
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
+    }
 }
