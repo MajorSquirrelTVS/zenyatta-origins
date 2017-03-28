@@ -7,6 +7,7 @@ public class ZenattyaController : MonoBehaviour {
     public float MaxSpeed = 10.0f;
     bool facingRight = true;
     bool grounded = true;
+    public Transform groundCheck;
 	// Use this for initialization
 	void Start () {
 
