@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZenattyaController : MonoBehaviour {
 
     public float maxSpeed = 10.0f;
-    bool facingRight = true;
+    public bool facingRight = true;
     bool grounded = false;
     public Transform groundCheck;
     float groundRadius = 0.2f;
@@ -16,6 +16,7 @@ public class ZenattyaController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rigidbody = GetComponent<Rigidbody2D>();
+        facingRight = true;
     }
 	
 	// Update is called once per frame
@@ -34,11 +35,11 @@ public class ZenattyaController : MonoBehaviour {
 
         rigidbody.velocity = new Vector2(move * maxSpeed, rigidbody.velocity.y);
 
-        if (move > 0 && !facingRight)
+        /*if (move > 0 && !facingRight)
             Flip();
         else if (move < 0 && facingRight)
             Flip();
-
+            */
         /** MOVEMENT **/
 	}
 
@@ -54,12 +55,17 @@ public class ZenattyaController : MonoBehaviour {
         /** JUMPING **/
     }
 
-    void Flip()
+    public void Flip()
     {
         facingRight = !facingRight;
 
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+    }
+
+    public bool getFacing()
+    {
+        return facingRight;
     }
 }
