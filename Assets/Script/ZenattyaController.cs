@@ -8,7 +8,7 @@ public class ZenattyaController : MonoBehaviour {
     public bool facingRight = true;
     bool grounded = false;
     public Transform groundCheck;
-    float groundRadius = 0.2f;
+    float groundRadius = 0.1f;
     public LayerMask whatIsGround;
     public float jumpForce = 700.0f;
     Rigidbody2D rigidbody;
