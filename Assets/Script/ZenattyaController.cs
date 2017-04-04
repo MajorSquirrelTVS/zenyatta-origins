@@ -11,6 +11,7 @@ public class ZenattyaController : MonoBehaviour {
     float groundRadius = 0.2f;
     public LayerMask whatIsGround;
     public float jumpForce = 700.0f;
+    public GameObject orb;
     Rigidbody2D rigidbody;
 
     // Use this for initialization
@@ -67,5 +68,19 @@ public class ZenattyaController : MonoBehaviour {
     public bool getFacing()
     {
         return facingRight;
+    }
+
+    public void FireShot(Vector2 targetPos)
+    {
+        Vector2 orbSpawner = gameObject.transform.position;
+        Vector2 direction;
+
+        orbSpawner.x += (facingRight ? 1 : -1);
+        direction.x = targetPos.x - orbSpawner.x;
+        direction.y = targetPos.y - orbSpawner.y;
+
+        GameObject newOrb = Instantiate(orb, orbSpawner, gameObject.transform.rotation) as GameObject;
+        Rigidbody2D rb = newOrb.GetComponent<Rigidbody2D>();
+        rb.velocity = direction.normalized * 30;
     }
 }
