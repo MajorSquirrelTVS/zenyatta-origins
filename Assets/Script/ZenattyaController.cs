@@ -35,11 +35,6 @@ public class ZenattyaController : MonoBehaviour {
 
         rigidbody.velocity = new Vector2(move * maxSpeed, rigidbody.velocity.y);
 
-        /*if (move > 0 && !facingRight)
-            Flip();
-        else if (move < 0 && facingRight)
-            Flip();
-            */
         /** MOVEMENT **/
 	}
 
@@ -57,11 +52,13 @@ public class ZenattyaController : MonoBehaviour {
 
     public void Flip()
     {
+        /** facing zenyatt **/
         facingRight = !facingRight;
 
         Vector3 theScale = transform.localScale;
         theScale.x *= -1;
         transform.localScale = theScale;
+        /** facing zenyatt **/
     }
 
     public bool getFacing()
