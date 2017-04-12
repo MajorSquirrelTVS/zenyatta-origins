@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour {
 	void Update () {
 
         GameObject Player = GameObject.FindGameObjectWithTag("Player");
-        transform.localPosition = new Vector3(Player.transform.position.x, Player.transform.position.y + 5, -10);
+        transform.localPosition = new Vector3(Player.transform.position.x, Player.transform.position.y, -10);
 
 	}
 }
