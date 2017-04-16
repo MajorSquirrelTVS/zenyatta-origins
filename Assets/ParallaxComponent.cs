@@ -9,7 +9,7 @@ public class            ParallaxComponent : MonoBehaviour
 
     private Transform   cameraTransform;
     private Transform[] layers;
-    private float       viewZone = 10.0f;
+    private float       viewZone = 16.0f;
     private int         leftIndex;
     private int         rightIndex;
     private float       lastCameraX;
