@@ -47,7 +47,7 @@ public class ViseurController : MonoBehaviour {
 
         /** INPUT SHOOTING **/
         if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && Time.time > shootRateTimeStamp) { //left click
-            playerController.FireShot(Projectile.BASIC, posMouseCamera, 30);
+            playerController.FireShot(Projectile.BASIC, posMouseCamera, 10);
             shootRateTimeStamp = Time.time + shootRate;
         }
 

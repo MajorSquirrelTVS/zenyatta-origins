@@ -5,11 +5,14 @@ using UnityEngine;
 public class TargetSwitch : MonoBehaviour {
 
     bool isOpen;
+    public Sprite open_texture;
+    public Sprite close_texture;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         isOpen = false;
-	}
+        transform.gameObject.GetComponent<SpriteRenderer>().sprite = close_texture;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -18,11 +21,20 @@ public class TargetSwitch : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(transform.gameObject.name);
+        Debug.Log(other.gameObject.tag);
         Debug.Log("Switch");
-        if (isOpen)
+        Debug.Log(isOpen);
+        if (isOpen && other.gameObject.tag == "Orb")
+        {
             isOpen = false; // close
-        else
+            transform.gameObject.GetComponent<SpriteRenderer>().sprite = close_texture;
+        }
+        else if (!isOpen && other.gameObject.tag == "Orb")
+        {
             isOpen = true; //open
+            transform.gameObject.GetComponent<SpriteRenderer>().sprite = open_texture;
+
+        }
+        Destroy(other.gameObject);
     }
 }
