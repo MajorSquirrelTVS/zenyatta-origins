@@ -35,4 +35,9 @@ public class TargetSwitch : MonoBehaviour {
             Destroy(other.gameObject);
         }
     }
+
+    public bool getIsOpen()
+    {
+        return isOpen;
+    }
 }
