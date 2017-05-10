@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 
@@ -30,14 +31,21 @@ public class GameController : MonoBehaviour {
             finishText.text = "Finish !";
         else
             finishText.text = "";
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            int scene = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(scene, LoadSceneMode.Single);
+        }
+          
     }
 
-    void setRestart(bool value)
+    public void setRestart(bool value)
     {
         restart = value;
     }
 
-    void setFinish(bool value)
+    public void setFinish(bool value)
     {
         finish = value;
     }
