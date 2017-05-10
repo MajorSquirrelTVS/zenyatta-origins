@@ -11,8 +11,8 @@ public class TileMap : MonoBehaviour {
 	}
 
 	void Start() {
-		GetComponent<SpriteRenderer> ().material.mainTextureScale = new Vector2 (transform.localScale.x / scaleFactor, transform.localScale.y / scaleFactor);
-	}
+        GetComponent<SpriteRenderer> ().material.mainTextureScale = new Vector2 (transform.localScale.x / scaleFactor, transform.localScale.y / scaleFactor);
+    }
 
 	void Update() {
 		if (transform.hasChanged && Application.isEditor && !Application.isPlaying) {
