@@ -16,8 +16,14 @@ public class ZenattyaController : MonoBehaviour {
     public GameObject gravityOrb;
     public GameObject expulseOrb;
     Rigidbody2D rigidbody;
+    AudioSource orbSoundShot;
 
     // Use this for initialization
+    void Awake()
+    {
+        orbSoundShot = transform.GetComponent<AudioSource>();
+    }
+
     void Start () {
         rigidbody = GetComponent<Rigidbody2D>();
         facingRight = true;
@@ -92,6 +98,7 @@ public class ZenattyaController : MonoBehaviour {
             GameObject newOrb = Instantiate(prefabOrb, orbSpawner, gameObject.transform.rotation) as GameObject;
             Rigidbody2D rb = newOrb.GetComponent<Rigidbody2D>();
             rb.velocity = direction.normalized * speed;
+            orbSoundShot.Play();
         }
     }
 
