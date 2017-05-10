@@ -5,17 +5,15 @@ using UnityEngine;
 public class TargetSwitch : MonoBehaviour {
 
     bool isOpen;
-    public Sprite open_texture;
-    public Sprite close_texture;
 
     // Use this for initialization
     void Start () {
         isOpen = false;
-        transform.gameObject.GetComponent<SpriteRenderer>().sprite = close_texture;
+        transform.gameObject.GetComponent<Animator>().Play("FireItPause");
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -27,14 +25,14 @@ public class TargetSwitch : MonoBehaviour {
         if (isOpen && other.gameObject.tag == "Orb")
         {
             isOpen = false; // close
-            transform.gameObject.GetComponent<SpriteRenderer>().sprite = close_texture;
+            transform.gameObject.GetComponent<Animator>().Play("FireItPause");
+            Destroy(other.gameObject);
         }
         else if (!isOpen && other.gameObject.tag == "Orb")
         {
             isOpen = true; //open
-            transform.gameObject.GetComponent<SpriteRenderer>().sprite = open_texture;
-
+            transform.gameObject.GetComponent<Animator>().Play("FireItActivated");
+            Destroy(other.gameObject);
         }
-        Destroy(other.gameObject);
     }
 }
