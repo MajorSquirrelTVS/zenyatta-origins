@@ -19,9 +19,9 @@ public class TargetSwitch : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log(other.gameObject.tag);
+        /*Debug.Log(other.gameObject.tag);
         Debug.Log("Switch");
-        Debug.Log(isOpen);
+        Debug.Log(isOpen);*/
         if (isOpen && other.gameObject.tag == "Orb")
         {
             isOpen = false; // close
