@@ -7,7 +7,7 @@ public class PressurePlateSwitch : MonoBehaviour {
 
     public GameObject connect_object;
     public Sprite turn_on_sprite;
-    public bool is_on;
+    bool is_on;
     Sprite turn_off_sprite;
 
 	// Use this for initialization
@@ -21,20 +21,17 @@ public class PressurePlateSwitch : MonoBehaviour {
         Debug.Log(is_on);
 	}
 
-    void OnCollisionEnter2D(Collision2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         
         if (col.gameObject == connect_object)
         {
-            if (col.gameObject.transform.position.y > transform.position.y)
-            {
                 transform.gameObject.GetComponent<SpriteRenderer>().sprite = turn_on_sprite;
-                is_on = true;
-            }
+            is_on = true;
         }
     }
 
-    void OnCollisionExit2D(Collision2D col)
+    void OnTriggerExit2D(Collider2D col)
     {
         if (col.gameObject == connect_object)
         {
@@ -43,5 +40,9 @@ public class PressurePlateSwitch : MonoBehaviour {
         }
     }
     
+    public bool isOn()
+    {
+        return is_on;
+    }
 }
 
