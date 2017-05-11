@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1ad847ba33e599140b4d2f58b2c64b22
+timeCreated: 1492329271
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SF TransRobotics Condensed
+  fontNames:
+  - SF TransRobotics Condensed
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c2da4a69b10db73429cc42e415ba13a2
+timeCreated: 1492329271
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: SF TransRobotics Extended
+  fontNames:
+  - SF TransRobotics Extended
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 96d9599d2b0779b4f9dcc30c38898f86, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
