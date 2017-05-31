@@ -39,23 +39,7 @@ public class ZenattyaController : MonoBehaviour {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
         /** JUMP state **/
-        // Get the velocity
-        /*Vector3 horizontalMove = rigidbody.velocity;
-        // Don't use the vertical velocity
-        horizontalMove.y = 0;
-        // Calculate the approximate distance that will be traversed
-        float distance = horizontalMove.magnitude * Time.fixedDeltaTime;
-        // Normalize horizontalMove since it should be used to indicate direction
-        horizontalMove.Normalize();
-        RaycastHit hit;
-
-        // Check if the body's current velocity will result in a collision
-        if (rigidbody.SweepTest(horizontalMove, out hit, distance))
-        {
-            // If so, stop the movement
-            rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, 0);
-        }*/
-
+        
         /** MOVEMENT **/
 
         float move = 0.0f;
