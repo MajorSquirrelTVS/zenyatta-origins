@@ -8,6 +8,7 @@ public class ZenattyaController : MonoBehaviour {
     public float maxSpeed = 10.0f;
     public bool facingRight = true;
     bool grounded = false;
+    bool stuckOnWall = false;
     public Transform groundCheck;
     float groundRadius = 0.1f;
     public LayerMask whatIsGround;
@@ -27,6 +28,7 @@ public class ZenattyaController : MonoBehaviour {
     void Start () {
         rigidbody = GetComponent<Rigidbody2D>();
         facingRight = true;
+        //rigidbody.collisionDetectionMode = CollisionDetectionMode2D.Continuous; rigidbody.interpolation = RigidbodyInterpolation2D.Extrapolate;
     }
 	
 	// Update is called once per frame
@@ -37,11 +39,28 @@ public class ZenattyaController : MonoBehaviour {
         grounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
 
         /** JUMP state **/
+        // Get the velocity
+        /*Vector3 horizontalMove = rigidbody.velocity;
+        // Don't use the vertical velocity
+        horizontalMove.y = 0;
+        // Calculate the approximate distance that will be traversed
+        float distance = horizontalMove.magnitude * Time.fixedDeltaTime;
+        // Normalize horizontalMove since it should be used to indicate direction
+        horizontalMove.Normalize();
+        RaycastHit hit;
 
+        // Check if the body's current velocity will result in a collision
+        if (rigidbody.SweepTest(horizontalMove, out hit, distance))
+        {
+            // If so, stop the movement
+            rigidbody.velocity = new Vector3(0, rigidbody.velocity.y, 0);
+        }*/
 
         /** MOVEMENT **/
 
-        float move = Input.GetAxis("Horizontal");
+        float move = 0.0f;
+
+        move = Input.GetAxis("Horizontal");
 
         rigidbody.velocity = new Vector2(move * maxSpeed, rigidbody.velocity.y);
 
@@ -54,7 +73,7 @@ public class ZenattyaController : MonoBehaviour {
 
         if (grounded && Input.GetKeyDown(KeyCode.Space))
         {
-            rigidbody.AddForce(new Vector2(0, jumpForce));
+            rigidbody.AddForce(new Vector2(0.0f, jumpForce));
         }
 
         /** JUMPING **/
