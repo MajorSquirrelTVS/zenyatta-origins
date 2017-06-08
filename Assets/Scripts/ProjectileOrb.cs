@@ -16,4 +16,8 @@ public class ProjectileOrb : MonoBehaviour {
 	void Update () {
 		
 	}
+
+	void OnCollisionEnter2D(Collision2D coll) {
+		Destroy(gameObject);
+	}
 }

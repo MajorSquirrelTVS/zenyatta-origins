@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenyatta;
 
 public class ViseurController : MonoBehaviour {
 
@@ -44,10 +45,18 @@ public class ViseurController : MonoBehaviour {
             playerController.Flip();
         /** FACING OF PLAYER WITH RETICULE **/
 
+        /** INPUT SHOOTING **/
         if ((Input.GetMouseButtonDown(0) || Input.GetMouseButton(0)) && Time.time > shootRateTimeStamp) { //left click
-            playerController.FireShot(posMouseCamera);
+            playerController.FireShot(Projectile.BASIC, posMouseCamera, 10);
             shootRateTimeStamp = Time.time + shootRate;
         }
 
+        if (Input.GetMouseButtonDown(1)) {
+            playerController.FireShot(Projectile.GRAVITY, posMouseCamera, 10);
+        }
+        if (Input.GetMouseButtonDown(2)) {
+            playerController.FireShot(Projectile.EXPULSE, posMouseCamera, 10);
+        }
+        /** INPUT SHOOTING **/
     }
 }
