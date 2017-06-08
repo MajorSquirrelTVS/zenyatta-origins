@@ -49,4 +49,9 @@ public class GameController : MonoBehaviour {
     {
         finish = value;
     }
+
+    public void goLevel2()
+    {
+        LevelLoader.LoadLevel("Level_2");
+    }
 }

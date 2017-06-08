@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    public void LoadLevel()
+    static public void LoadLevel(string name)
     {
-        SceneManager.LoadScene("Level_1");
+        SceneManager.LoadScene(name);
     }
 
     public void QuitGame()
