@@ -52,6 +52,6 @@ public class GameController : MonoBehaviour {
 
     public void goLevel2()
     {
-        LevelLoader.LoadLevel("Level_2");
+        SceneManager.LoadScene("Level_2");
     }
 }
