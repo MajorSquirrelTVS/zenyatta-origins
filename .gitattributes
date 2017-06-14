@@ -1,1 +1,4 @@
 Assets/Sprite/*.png filter=lfs diff=lfs merge=lfs -text lockable
+Assets/Sprite/*.avi filter=lfs diff=lfs merge=lfs -text lockable
+Assets/Sprite/*.mp3 filter=lfs diff=lfs merge=lfs -text lockable
+
