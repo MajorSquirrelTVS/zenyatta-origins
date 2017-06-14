@@ -15,8 +15,6 @@ public class PlayMovie : MonoBehaviour {
         GetComponent<RawImage>().texture = movie as MovieTexture;
         movie.Play();
         source.Play();
-
-
     }
 
     void Update()
@@ -26,6 +24,5 @@ public class PlayMovie : MonoBehaviour {
             Debug.Log("movie end");
             transform.gameObject.SetActive(false);
         }
-
     }
 }
