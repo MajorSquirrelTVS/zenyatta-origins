@@ -20,11 +20,11 @@ public class DoorSwitch : MonoBehaviour {
 		if (trig.getIsOpen())
         {
             transform.GetComponent<SpriteRenderer>().sprite = openedSprite;
-            transform.GetComponent<BoxCollider2D>().isTrigger = true;
+            transform.GetComponent<BoxCollider2D>().enabled = false;
         } else
         {
             transform.GetComponent<SpriteRenderer>().sprite = closedSprite;
-            transform.GetComponent<BoxCollider2D>().isTrigger = false;
+            transform.GetComponent<BoxCollider2D>().enabled = true;
         }
 	}
 }

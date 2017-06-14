@@ -13,7 +13,8 @@ public class FallDeath : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (transform.position.y < 0.0)
+        Debug.Log(transform.gameObject.name + ": " + transform.position.y );
+        if (transform.position.y < -1.0)
         {
             int scene = SceneManager.GetActiveScene().buildIndex;
             SceneManager.LoadScene(scene, LoadSceneMode.Single);

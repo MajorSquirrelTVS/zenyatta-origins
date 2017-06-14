@@ -55,7 +55,7 @@ public class ZenattyaController : MonoBehaviour {
     {
         /** JUMPING **/
 
-        if (grounded && Input.GetKeyDown(KeyCode.Space))
+        if (grounded && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))
         {
             rigidbody.AddForce(new Vector2(0.0f, jumpForce));
         }
